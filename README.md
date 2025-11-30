@@ -33,6 +33,15 @@ A simple yet powerful Text-to-Speech iOS app that converts your text files into 
 - File modification dates tracking
 - Content preview in file list
 
+### 🌐 WiFi Upload Server (NEW!)
+- **Create files from any computer** on your local network
+- Built-in HTTP server accessible via web browser
+- Upload text content from desktop/laptop computers
+- Create folders and organize files remotely
+- Persistent server - stays on even when navigating away or device is locked
+- Simple web interface - no additional software needed
+- Real-time status updates on uploads
+
 ### 🎨 Beautiful UI
 - Modern gradient design with smooth animations
 - Clean and intuitive interface
@@ -70,6 +79,20 @@ The project uses standard iOS frameworks and doesn't require any external depend
 3. **Add Files**: Tap the plus icon (+) to create a new text file
 4. **Edit Content**: Enter or paste your text content
 
+### WiFi Upload Server
+1. **Start Server**: Tap the Upload button (⬆️) in the top-right corner
+2. **Toggle Server On**: Switch the server toggle to enable it
+3. **Note the URL**: Your device's IP address and port (e.g., http://192.168.1.100:8080) will be displayed
+4. **Access from Computer**: 
+   - Open a web browser on any computer connected to the same WiFi network
+   - Navigate to the displayed URL
+   - Create folders and text files directly from your computer
+   - All changes appear instantly on your iOS device
+5. **Server Management**:
+   - Server stays on even when you navigate away or lock your device
+   - Only stops when you manually toggle it off
+   - Works in background and while device is locked
+
 ### Playing Files
 1. **Tap a file** to open the editor and view its content
 2. **Tap the Play button** to start Text-to-Speech
@@ -100,6 +123,7 @@ The project uses standard iOS frameworks and doesn't require any external depend
 - **SwiftUI** for the user interface
 - **AVFoundation** for speech synthesis
 - **MediaPlayer** framework for lock screen controls
+- **Network** framework for HTTP server implementation
 - **MVVM** pattern with `@StateObject` and `@EnvironmentObject`
 
 ### Key Components
@@ -110,11 +134,15 @@ The project uses standard iOS frameworks and doesn't require any external depend
 - `FileEditorView`: Text editor with playback controls
 - `FolderView`: Displays files within a specific folder
 - `VoicePickerView`: Voice selection interface
+- `WiFiUploadServer`: HTTP server for remote file creation
+- `NetworkHelper`: Network utilities for IP address detection
+- `UploadView`: Server management interface
 
 ### Data Persistence
-- Files and folders are stored using `UserDefaults`
-- Each file includes: name, content, creation/modification dates
+- Files and folders are stored as JSON in the Documents directory
+- Each file includes: name, content, creation/modification dates, folder association
 - Voice preferences are saved and restored on app launch
+- Upload server integrates seamlessly with existing file management system
 
 ## 🎨 Screenshots
 

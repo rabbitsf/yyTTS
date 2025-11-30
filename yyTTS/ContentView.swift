@@ -193,6 +193,12 @@ struct ContentView: View {
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    // Upload button
+                    NavigationLink(destination: UploadView().environmentObject(fileManager)) {
+                        Image(systemName: "arrow.up.circle.fill")
+                            .foregroundColor(AppTheme.primaryText)
+                    }
+                    
                     // Create folder button
                     Button(action: {
                         selectedFolder = nil
